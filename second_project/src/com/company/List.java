@@ -26,6 +26,8 @@ class List<T> {
         }
     }
 
+    public List<T>
+
     private List<T> insert(T data, List<T> list){ //исходный лист
         Node new_node = new Node(data);
         new_node.next = null;
@@ -42,12 +44,21 @@ class List<T> {
         return list;
     }
 
-    private List<T> append(T data, List<T> list){
+//    public void append(T data){
+//        Node<T> new_node = new Node(data);
+//        new_node.next = this.head;
+//        this.head = new_node;
+//        this.length++;
+//    }
+
+    public void prepend(T data) {
         Node<T> new_node = new Node(data);
-        new_node.next = this.head.next;
-        this.head = new_node;
+        Node<T> tmp = this.head;
+        while(tmp.next != null){
+            tmp = tmp.next;
+        }
+        tmp.next = new_node;
         this.length++;
-        return list;
     }
 
     public T getIndex(int index, List<T> list){
