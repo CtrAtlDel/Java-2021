@@ -1,50 +1,71 @@
 package com.company;
 
 class List<T> {
-    private final T[] list;
-    private final int length;
+    private Node<T> head;
+    private int length;
 
-    List(){
+    static class Node<T>{
+        T data;
+        Node<T> next;
+        Node(T data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public List(){
         this.length = 0;
-        this.list = new T[16];
+        this.head = null;
     }
 
-    List(int size) {
+    public List(int size){
         this.length = size;
-        this.list = new int[size];
-    }
+        this.head = null;
+        for (int i = 0; i < size; i++){
 
-    public int length(){return this.length;}
-
-    public void insert(int x){
-        if (this.length <= 0) { //if first elem
-            this.list[this.length] = x;
-            this.length++;
-        }
-        int temp[] = copyOf(this.list, this.length +1);//длина текущего массива + 1
-        ++this.length;
-        this.list = temp;
-        list[this.length - 1] = x;
-    }
-
-    //???
-    private int[] copyOf(int[] list, int i) {
-        int size = i + 16;
-        int[] copy = new int[size];
-        for (int j = 0; j < i - 1; ++j){
-            copy[j] = list[j];
-        }
-        copy[i - 1] = 0;
-        return copy;
-    }
-
-    public boolean isEmpty(){
-        return this.length <= 0;
-    }
-
-    public void printList(){
-        for (int i = 0; i < this.length; ++i){
-            System.out.println(this.list[i]);
         }
     }
+
+    private List<T> insert(T data, List<T> list){ //исходный лист
+        Node new_node = new Node(data);
+        new_node.next = null;
+        if (list.head == null){ // список был изначально пуст
+            list.head = new_node;
+        }else{
+            Node<T> tmp = list.head;
+            while(tmp.next != null){
+                tmp = tmp.next;
+            }
+            tmp.next = new_node;
+        }
+        this.length++;
+        return list;
+    }
+
+    private List<T> append(T data, List<T> list){
+        Node<T> new_node = new Node(data);
+        new_node.next = this.head.next;
+        this.head = new_node;
+        this.length++;
+        return list;
+    }
+
+    public T getIndex(int index, List<T> list){
+        Node<T> tmp = list.head;
+        for (int i = 0; i <= index; i++){
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
+    public int getLength(List<T> list){ return this.length; }
+
+    public static void print(List<T> list){
+        Node<T> tmp = list.head;
+        while(tmp != null){
+            System.out.print(tmp.data + " ");
+            tmp = tmp.next;
+        }
+    }
+
 }
