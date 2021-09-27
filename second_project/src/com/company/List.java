@@ -82,6 +82,20 @@ class List<T> {
         else{return true;}
     }
 
+    public Object  setIndex(int index, T data){
+        if (index >= this.length){
+            return null;
+        }
+        Node<T> tmp = this.head;
+        for (int i = 0 ; i < index; i++){
+            tmp = tmp.next;
+        }
+        Node<T> new_node = new Node<T>(data);
+        new_node.next = tmp.next;
+        tmp.next = new_node;
+        return null;
+    }
+
     public T getIndex(int index, List<T> list){
         Node<T> tmp = list.head;
         for (int i = 0; i <= index; i++){
