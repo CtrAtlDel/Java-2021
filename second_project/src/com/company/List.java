@@ -7,7 +7,7 @@ class List<T> {
     static class Node<T>{
         T data;
         Node<T> next;
-        Node(T data){
+        public Node(T data){
             this.data = data;
             this.next = null;
         }
@@ -17,7 +17,18 @@ class List<T> {
         this.length = 0;
         this.head = null;
     }
-
+    public List(int size){
+        if (size > 0){
+            this.length = size;
+            this.head = new Node<T>(null);
+            Node<T> tmp = this.head;
+            for(int i = 0; i < size - 1 ; i++){
+                Node<T> new_node = new Node<T>(null);
+                tmp.next = new_node;
+                tmp = tmp.next;
+            }
+        }
+    }
     public List<T> insert(T data, List<T> list){ //исходный лист
         Node new_node = new Node(data);
         new_node.next = null;
@@ -88,5 +99,4 @@ class List<T> {
             tmp = tmp.next;
         }
     }
-
 }
