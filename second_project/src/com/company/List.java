@@ -1,17 +1,22 @@
 package com.company;
 
-class List {
-    int[] list;
-    int length;
+class List<T> {
+    private final T[] list;
+    private final int length;
+
     List(){
         this.length = 0;
-        this.list = new int[16];
+        this.list = new T[16];
     }
-    List(int n) {
-        this.length = n;
-        this.list = new int[n];
+
+    List(int size) {
+        this.length = size;
+        this.list = new int[size];
     }
-    void insert(int x){
+
+    public int length(){return this.length;}
+
+    public void insert(int x){
         if (this.length <= 0) { //if first elem
             this.list[this.length] = x;
             this.length++;
@@ -21,6 +26,8 @@ class List {
         this.list = temp;
         list[this.length - 1] = x;
     }
+
+    //???
     private int[] copyOf(int[] list, int i) {
         int size = i + 16;
         int[] copy = new int[size];
@@ -31,10 +38,11 @@ class List {
         return copy;
     }
 
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return this.length <= 0;
     }
-    void printList(){
+
+    public void printList(){
         for (int i = 0; i < this.length; ++i){
             System.out.println(this.list[i]);
         }
