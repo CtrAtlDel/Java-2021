@@ -21,9 +21,13 @@ public class Mapp<P, Q> {
         this.list = null;
     }
     public Mapp(int size){
-        this.length = size;
-        this.list = new List<Pairs<P, Q>>(size);
-
+        if(size <= 0){
+            this.length = size;
+            this.list = new List<Pairs<P, Q>>(size);
+        }else{
+            this.length = 0;
+            this.list = null;
+        }
     }
     public Object put(P key, Q value){
         Pairs<P, Q> pair = new Pairs<>(key, value);
