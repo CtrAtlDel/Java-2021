@@ -1,7 +1,7 @@
 package com.company;
 
 class List<T> {
-    private Node<T> head;
+    public Node<T> head;
     private int length;
 
     static class Node<T>{
@@ -12,7 +12,6 @@ class List<T> {
             this.next = null;
         }
     }
-
     public List(){
         this.length = 0;
         this.head = null;
@@ -96,12 +95,24 @@ class List<T> {
         return null;
     }
 
-    public T getIndex(int index, List<T> list){
+    public T getElembyindex(int index, List<T> list){
+        if (index >= this.length) {
+            return null;
+        }
         Node<T> tmp = list.head;
         for (int i = 0; i <= index; i++){
             tmp = tmp.next;
         }
         return tmp.data;
+    }
+
+    public int getIndexbyelem(T data, List<T> list) {
+        Node<T> tmp = list.head;
+        for (int i = 0; i< this.length; i++ ){
+            if (tmp.data == data){return i;}
+            tmp = tmp.next;
+        }
+        return -1;
     }
 
     public int getLength(List<T> list){ return this.length; }
