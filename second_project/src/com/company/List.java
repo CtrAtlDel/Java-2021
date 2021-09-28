@@ -21,8 +21,7 @@ class List<T> {
             this.head = new Node<T>(null);
             Node<T> tmp = this.head;
             for(int i = 0; i < size - 1 ; i++){
-                Node<T> new_node = new Node<T>(null);
-                tmp.next = new_node;
+                tmp.next = new Node<>(null);
                 tmp = tmp.next;
             }
         }

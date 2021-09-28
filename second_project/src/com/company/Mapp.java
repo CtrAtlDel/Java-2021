@@ -51,7 +51,7 @@ public class Mapp<P, Q> {
         Pairs<P, Q> pair = new Pairs<>(key, null);
         int index = this.list.getIndexbyelem(pair,list);
         if (index == -1){
-            return null;
+            return null; // no found key
         }
         this.length--;
         return this.list.deleteIndex(index, list);
@@ -62,6 +62,9 @@ public class Mapp<P, Q> {
     }
     public List<P> getKeys(){
         List<P> list = new List<>();
+        if (this.list == null || this.list.head == null){
+            return null;
+        }
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
             list.insert(tmp.data.key, list);
@@ -70,6 +73,9 @@ public class Mapp<P, Q> {
         return list;
     }
     public List<Q> getValues() {
+        if (this.list == null || this.list.head == null){
+            return null;
+        }
         List<Q> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
@@ -79,6 +85,9 @@ public class Mapp<P, Q> {
         return list;
     }
     public List<Pairs<P, Q>> getEntries() {
+        if (this.list == null || this.list.head == null){
+            return null;
+        }
         List<Pairs<P, Q>> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
