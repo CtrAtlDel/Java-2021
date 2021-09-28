@@ -28,7 +28,7 @@ class List<T> {
         }
     }
     public List<T> insert(T data, List<T> list){ //исходный лист
-        Node new_node = new Node(data);
+        Node<T> new_node = new Node<>(data);
         new_node.next = null;
         if (list.head == null){ // список был изначально пуст
             list.head = new_node;
@@ -43,7 +43,7 @@ class List<T> {
         return list;
     }
     public void prepend(T data) {
-        Node<T> new_node = new Node(data);
+        Node<T> new_node = new Node<>(data);
         Node<T> tmp = this.head;
         while(tmp.next != null){
             tmp = tmp.next;
@@ -84,7 +84,7 @@ class List<T> {
         for (int i = 0 ; i < index; i++){
             tmp = tmp.next;
         }
-        Node<T> new_node = new Node<T>(data);
+        Node<T> new_node = new Node<>(data);
         new_node.next = tmp.next;
         tmp.next = new_node;
         return null;

@@ -1,7 +1,7 @@
 package com.company;
 
 public class Mapp<P, Q> {
-    private List<Pairs<P, Q>> list;
+    private final List<Pairs<P, Q>> list;
     private int length;
 
     final static class Pairs<P, Q>{
