@@ -27,13 +27,22 @@ public class Mapp<P, Q> {
     }
     public Object put(P key, Q value){
         Pairs<P, Q> pair = new Pairs<>(key, value);
-        this.list.insert(pair,list);
+        this.list.insert(pair);
         this.length++;
         return list;
     }
+
+    /**
+     *
+     * @param key
+     * @return
+     */
     public Object get(P key){
         Pairs<P, Q> pair = new Pairs<>(key, null);
         List.Node<Pairs<P, Q>> tmp = this.list.head;
+        if(tmp == null){
+            return null;
+        }
         for (int i = 0; i < this.length; i++){
             if (tmp.data.key == key){return tmp.data.data;}
             tmp = tmp.next;
@@ -49,7 +58,7 @@ public class Mapp<P, Q> {
     }
     public Object remove(P key){
         Pairs<P, Q> pair = new Pairs<>(key, null);
-        int index = this.list.getIndexbyelem(pair,list);
+        int index = this.list.getIndexByelem(pair);
         if (index == -1){
             return null; // no found key
         }
@@ -67,7 +76,7 @@ public class Mapp<P, Q> {
         }
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
-            list.insert(tmp.data.key, list);
+            list.insert(tmp.data.key);
             tmp = tmp.next;
         }
         return list;
@@ -79,7 +88,7 @@ public class Mapp<P, Q> {
         List<Q> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
-            list.insert(tmp.data.data, list);
+            list.insert(tmp.data.data);
             tmp = tmp.next;
         }
         return list;
@@ -91,7 +100,7 @@ public class Mapp<P, Q> {
         List<Pairs<P, Q>> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
-            list.insert(tmp.data, list);
+            list.insert(tmp.data);
             tmp = tmp.next;
         }
         return list;
