@@ -1,10 +1,10 @@
 package com.company;
 
- public class List<T> {
+public class List<T> {
     public Node<T> head;
     private int length;
 
-     static class Node<T> {
+    static class Node<T> {
         T data;
         Node<T> next;
 
@@ -48,15 +48,7 @@ package com.company;
         }
         this.length++;
     }
-//    public void prepend(T data) {
-//        Node<T> new_node = new Node<>(data);
-//        Node<T> tmp = this.head;
-//        while (tmp.next != null) {
-//            tmp = tmp.next;
-//        }
-//        tmp.next = new_node;
-//        this.length++;
-//    }
+
     public Object deleteIndex(int index, List<T> list) {
         if (index >= list.length) {
             return null;
@@ -86,12 +78,11 @@ package com.company;
         }
     }
 
-     /**
-      *
-      * @param index
-      * @param data
-      * @return
-      */
+    /**
+     * @param index
+     * @param data
+     * @return
+     */
     public Object setIndex(int index, T data) {
         if (index >= this.length) {
             return null;
