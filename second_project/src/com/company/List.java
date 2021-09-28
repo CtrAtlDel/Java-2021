@@ -34,6 +34,10 @@ public class List<T> {
         }
     }
 
+    /**
+     *
+     * @param data
+     */
     public void insert(T data) { //исходный лист
         Node<T> new_node = new Node<>(data);
         new_node.next = null;
@@ -49,35 +53,37 @@ public class List<T> {
         this.length++;
     }
 
-    public Object deleteIndex(int index, List<T> list) {
-        if (index >= list.length) {
-            return null;
+    /**
+     *
+     * @param index - index of element
+     * @return
+     */
+    public void deleteIndex(int index) {
+        if (index >= this.length) {
+            System.out.println("Index out of range");
         }
-        if (list.isEmpty(list)) {
+        if (this.length > 0) {
             if (index == 0) {
-                list.head = list.head.next;
+                this.head = this.head.next;
             } else {
-                Node<T> tmp = list.head;
+                Node<T> tmp = this.head;
                 for (int i = 0; i < index; i++) {
                     tmp = tmp.next;
                 }
                 tmp = tmp.next;
-                return list;
             }
-        } else {
-            return list;
         }
-        return list;
     }
 
-    public boolean isEmpty(List<T> list) {
-        return list.length > 0;
+    public boolean isEmpty() {
+        return this.length > 0;
     }
 
     /**
-     * @param index
-     * @param data
-     * @return
+     * input data by index
+     * @param index index of element
+     * @param data value of elemet
+     * @return null if index out of range,
      */
     public Object setIndex(int index, T data) {
         if (index >= this.length) {
@@ -93,6 +99,11 @@ public class List<T> {
         return null;
     }
 
+    /**
+     *
+     * @param index of elem in list
+     * @return value[index]
+     */
     public T getElemByIndex(int index) {
         if (index >= this.length) {
             return null;
@@ -104,6 +115,11 @@ public class List<T> {
         return tmp.data;
     }
 
+    /**
+     *
+     * @param data input value
+     * @return index of data
+     */
     public int getIndexByelem(T data) {
         Node<T> tmp = this.head;
         for (int i = 0; i < this.length; i++) {
@@ -115,10 +131,17 @@ public class List<T> {
         return -1;
     }
 
+    /**
+     *
+     * @return size of List
+     */
     public int getLength() {
         return this.length;
     }
 
+    /**
+     * print all elements of list
+     */
     public void print() {
         Node<T> tmp = this.head;
         while (tmp != null) {

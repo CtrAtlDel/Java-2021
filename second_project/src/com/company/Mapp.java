@@ -6,24 +6,33 @@ public class Mapp<P, Q> {
 
     final static class Pairs<P, Q> {
         P key;
-        Q data;
+        Q value;
 
         public Pairs(P key, Q data) {
             this.key = key;
-            this.data = data;
+            this.value = data;
         }
 
+        /**
+         * empty constructor
+         */
         public Pairs() {
             this.key = null;
-            this.data = null;
+            this.value = null;
         }
     }
 
+    /**
+     * empty constructor
+     */
     public Mapp() {
         this.length = 0;
         this.list = null;
     }
 
+    /**
+     * @param size - length of list
+     */
     public Mapp(int size) {
         if (size <= 0) {
             this.length = size;
@@ -34,32 +43,46 @@ public class Mapp<P, Q> {
         }
     }
 
-    public Object put(P key, Q value) {
-        Pairs<P, Q> pair = new Pairs<>(key, value);
-        this.list.insert(pair);
-        this.length++;
-        return list;
+    /**
+     * @param key   - key of element
+     * @param value - data of element
+     * @return
+     */
+    public void put(P key, Q value) {
+        if (this.list == null || this.list.head == null) {
+            //return null;
+        } else {
+            Pairs<P, Q> pair = new Pairs<>(key, value);
+            this.list.insert(pair);
+            this.length++;
+        }
     }
 
     /**
-     * @param key
-     * @return
+     * @param key - key of element in map
+     * @return value of elem by key
      */
     public Object get(P key) {
-        Pairs<P, Q> pair = new Pairs<>(key, null);
-        List.Node<Pairs<P, Q>> tmp = this.list.head;
-        if (tmp == null) {
+        if (this.list == null || this.list.head == null) {
             return null;
         }
+        Pairs<P, Q> pair = new Pairs<>(key, null);
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
             if (tmp.data.key == key) {
-                return tmp.data.data;
+                return tmp.data.value;
             }
             tmp = tmp.next;
         }
         return null;
     }
 
+    /**
+     *
+     * @param key
+     * @param def
+     * @return
+     */
     public Object get(P key, P def) {
         Object getter = get(key);
         if (getter == null) {
@@ -68,26 +91,38 @@ public class Mapp<P, Q> {
         return getter;
     }
 
-    public Object remove(P key) {
+    /**
+     * @param key - key of map
+     * @return null if list is empty
+     */
+    public void remove(P key) {
         Pairs<P, Q> pair = new Pairs<>(key, null);
+        if (this.list == null || this.list.head == null) {
+            System.out.println("List is empty");;
+            return;
+        }
         int index = this.list.getIndexByelem(pair);
         if (index == -1) {
-            return null; // no found key
+            return; // no found key
         }
         this.length--;
-        return this.list.deleteIndex(index, list);
+        this.list.deleteIndex(index);
     }
 
+    /**
+     * @param key - key in map
+     * @return true if key contain in map, false if key doesnt contain in map
+     */
     public boolean keyContains(P key) {
         Object tmp = this.get(key);
         return key != null;
     }
 
     public List<P> getKeys() {
-        List<P> list = new List<>();
         if (this.list == null || this.list.head == null) {
             return null;
         }
+        List<P> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
             list.insert(tmp.data.key);
@@ -103,7 +138,7 @@ public class Mapp<P, Q> {
         List<Q> list = new List<>();
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
-            list.insert(tmp.data.data);
+            list.insert(tmp.data.value);
             tmp = tmp.next;
         }
         return list;
@@ -122,10 +157,19 @@ public class Mapp<P, Q> {
         return list;
     }
 
+    /**
+     *
+     * @return size of mapp
+     */
     public int size() {
         return this.length;
     }
 
+    /**
+     *
+     * @return true - if size of map > 0
+     *         false - if size of map <= 0
+     */
     public boolean isEmpty() {
         return this.length > 0;
     }
