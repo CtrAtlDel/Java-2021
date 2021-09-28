@@ -109,6 +109,6 @@ public class Mapp<P, Q> {
         }
         return list;
     }
-    public int size(){return this.length;}
+    public int size(){ return this.length;}
     public boolean isEmpty(){ return this.length > 0;}
 }

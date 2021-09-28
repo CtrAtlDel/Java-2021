@@ -36,7 +36,6 @@ package com.company;
 
     public void insert(T data) { //исходный лист
         Node<T> new_node = new Node<>(data);
-
         new_node.next = null;
         if (this.head == null) { // список был изначально пуст
             this.head = new_node;
@@ -49,17 +48,15 @@ package com.company;
         }
         this.length++;
     }
-
-    public void prepend(T data) {
-        Node<T> new_node = new Node<>(data);
-        Node<T> tmp = this.head;
-        while (tmp.next != null) {
-            tmp = tmp.next;
-        }
-        tmp.next = new_node;
-        this.length++;
-    }
-
+//    public void prepend(T data) {
+//        Node<T> new_node = new Node<>(data);
+//        Node<T> tmp = this.head;
+//        while (tmp.next != null) {
+//            tmp = tmp.next;
+//        }
+//        tmp.next = new_node;
+//        this.length++;
+//    }
     public Object deleteIndex(int index, List<T> list) {
         if (index >= list.length) {
             return null;
