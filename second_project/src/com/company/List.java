@@ -71,11 +71,7 @@ public class List<T> {
     }
 
     public boolean isEmpty(List<T> list) {
-        if (list.length <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return list.length > 0;
     }
 
     /**
@@ -97,7 +93,7 @@ public class List<T> {
         return null;
     }
 
-    public T getElembyIndex(int index) {
+    public T getElemByIndex(int index) {
         if (index >= this.length) {
             return null;
         }
