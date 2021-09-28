@@ -3,6 +3,7 @@ package com.company;
 public class Mapp<P, Q> {
     private List<Pairs<P, Q>> list;
     private int length;
+
     final static class Pairs<P, Q>{
         P key;
         Q data;
@@ -27,11 +28,12 @@ public class Mapp<P, Q> {
     public Object put(P key, Q value){
         Pairs<P, Q> pair = new Pairs<>(key, value);
         this.list.insert(pair,list);
+        this.length++;
         return list;
     }
     public Object get(P key){
         Pairs<P, Q> pair = new Pairs<>(key, null);
-        List.Node<Pairs<P, Q>> tmp = list.head;
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++){
             if (tmp.data.key == key){return tmp.data.data;}
             tmp = tmp.next;
@@ -46,7 +48,47 @@ public class Mapp<P, Q> {
         return getter;
     }
     public Object remove(P key){
-
+        Pairs<P, Q> pair = new Pairs<>(key, null);
+        int index = this.list.getIndexbyelem(pair,list);
+        if (index == -1){
+            return null;
+        }
+        this.length--;
+        return this.list.deleteIndex(index, list);
     }
-
+    public boolean keyContains(P key){
+        Object tmp = this.get(key);
+        return key != null;
+    }
+    public List<P> getKeys(){
+        List<P> list = new List<>();
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
+        for (int i = 0; i < this.length; i++){
+            list.insert(tmp.data.key, list);
+            tmp = tmp.next;
+        }
+        return list;
+    }
+    public List<Q> getValues() {
+        List<Q> list = new List<>();
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
+        for (int i = 0; i < this.length; i++){
+            list.insert(tmp.data.data, list);
+            tmp = tmp.next;
+        }
+        return list;
+    }
+    public List<Pairs<P, Q>> getEntries() {
+        List<Pairs<P, Q>> list = new List<>();
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
+        for (int i = 0; i < this.length; i++){
+            list.insert(tmp.data, list);
+            tmp = tmp.next;
+        }
+        return list;
+    }
+    public int size(){return this.length;}
+    public boolean isEmpty(){
+        return this.length > 0;
+    }
 }

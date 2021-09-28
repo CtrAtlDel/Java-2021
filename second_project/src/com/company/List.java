@@ -3,7 +3,6 @@ package com.company;
 class List<T> {
     public Node<T> head;
     private int length;
-
     static class Node<T>{
         T data;
         Node<T> next;
