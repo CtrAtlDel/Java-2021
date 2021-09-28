@@ -144,6 +144,10 @@ public class Mapp<P, Q> {
         return list;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Pairs<P, Q>> getEntries() {
         if (this.list == null || this.list.head == null) {
             return null;
