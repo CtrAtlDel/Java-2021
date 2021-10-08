@@ -80,7 +80,7 @@ public class List<T> {
                 Node<T> tmp = this.head;
                 for (int i = 0; i < index; i++) {
                     tmp = tmp.next;
-                }
+                } 
                 tmp = tmp.next;
             }
         }
