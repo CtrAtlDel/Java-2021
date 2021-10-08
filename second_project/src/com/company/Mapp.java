@@ -78,9 +78,8 @@ public class Mapp<P, Q> {
     }
 
     /**
-     *
-     * @param key
-     * @param def
+     * @param key - key of element in map
+     * @param def - the default value, which is given by the second parameter.
      * @return
      */
     public Object get(P key, P def) {
@@ -98,7 +97,7 @@ public class Mapp<P, Q> {
     public void remove(P key) {
         Pairs<P, Q> pair = new Pairs<>(key, null);
         if (this.list == null || this.list.head == null) {
-            System.out.println("List is empty");;
+            System.out.println("List is empty");
             return;
         }
         int index = this.list.getIndexByelem(pair);
@@ -118,6 +117,9 @@ public class Mapp<P, Q> {
         return key != null;
     }
 
+    /**
+     * @return list of keys of map
+     */
     public List<P> getKeys() {
         if (this.list == null || this.list.head == null) {
             return null;
@@ -131,6 +133,9 @@ public class Mapp<P, Q> {
         return list;
     }
 
+    /**
+     * @return list of values of map
+     */
     public List<Q> getValues() {
         if (this.list == null || this.list.head == null) {
             return null;
@@ -145,8 +150,7 @@ public class Mapp<P, Q> {
     }
 
     /**
-     *
-     * @return
+     * @return list of pairs: key, value
      */
     public List<Pairs<P, Q>> getEntries() {
         if (this.list == null || this.list.head == null) {
@@ -162,17 +166,15 @@ public class Mapp<P, Q> {
     }
 
     /**
-     *
-     * @return size of mapp
+     * @return size of map(coubnt of element)
      */
     public int size() {
         return this.length;
     }
 
     /**
-     *
      * @return true - if size of map > 0
-     *         false - if size of map <= 0
+     * false - if size of map <= 0
      */
     public boolean isEmpty() {
         return this.length > 0;

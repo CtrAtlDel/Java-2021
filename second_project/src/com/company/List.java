@@ -4,6 +4,10 @@ public class List<T> {
     public Node<T> head;
     private int length;
 
+    /**
+     *
+     * @param <T> - type of element
+     */
     static class Node<T> {
         T data;
         Node<T> next;
@@ -14,11 +18,18 @@ public class List<T> {
         }
     }
 
+    /**
+     * empty constructor
+     */
     public List() {
         this.length = 0;
         this.head = null;
     }
 
+    /**
+     *
+     * @param size - size of List
+     */
     public List(int size) {
         if (size > 0) {
             this.length = size;
@@ -75,6 +86,10 @@ public class List<T> {
         }
     }
 
+    /**
+     *
+     * @return true if we have element insaid else false
+     */
     public boolean isEmpty() {
         return this.length > 0;
     }
