@@ -12,6 +12,10 @@ public class List<T> {
         T data;
         Node<T> next;
 
+        /**
+         *
+         * @param data - value of element
+         */
         public Node(T data) {
             this.data = data;
             this.next = null;
@@ -80,7 +84,7 @@ public class List<T> {
                 Node<T> tmp = this.head;
                 for (int i = 0; i < index; i++) {
                     tmp = tmp.next;
-                } 
+                }
                 tmp = tmp.next;
             }
         }
