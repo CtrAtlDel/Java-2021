@@ -1,7 +1,7 @@
 package com.company;
 
 public class Mapp<P, Q> {
-    private final List<Pairs<P, Q>> list;
+    private List<Pairs<P, Q>> list;
     private int length;
 
     final static class Pairs<P, Q> {
@@ -50,12 +50,14 @@ public class Mapp<P, Q> {
      */
     public void put(P key, Q value) {
         if (this.list == null || this.list.head == null) {
-
+            this.list = new List<>();
+            Pairs<P, Q> pair = new Pairs<>(key, value);
+            this.list.insert(pair);
         } else {
             Pairs<P, Q> pair = new Pairs<>(key, value);
             this.list.insert(pair);
-            this.length++;
         }
+        this.length++;
     }
 
     /**
