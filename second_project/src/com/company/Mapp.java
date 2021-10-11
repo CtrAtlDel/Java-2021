@@ -50,7 +50,7 @@ public class Mapp<P, Q> {
      */
     public void put(P key, Q value) {
         if (this.list == null || this.list.head == null) {
-            //return null;
+
         } else {
             Pairs<P, Q> pair = new Pairs<>(key, value);
             this.list.insert(pair);
