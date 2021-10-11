@@ -66,7 +66,7 @@ public class Mapp<P, Q> {
         if (this.list == null || this.list.head == null) {
             return null;
         }
-        Pairs<P, Q> pair = new Pairs<>(key, null);
+//        Pairs<P, Q> pair = new Pairs<>(key, null);
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
             if (tmp.data.key == key) {
