@@ -136,7 +136,7 @@ public class List_int {
                 tmp2 = tmp2.next;
             }
         }
-        if (tmp2 == null && tmp1 != null) {
+        if (tmp2 == null) {
             while (tmp1 != null) {
                 new_list.insert(tmp1.data);
                 tmp1 = tmp1.next;

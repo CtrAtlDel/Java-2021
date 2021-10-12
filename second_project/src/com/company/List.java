@@ -51,7 +51,7 @@ public class List<Object> {
 
     /**
      *
-     * @param data
+     * @param data - value of element
      */
     public void insert(Object data) { //исходный лист
         Node<Object> new_node = new Node<>(data);
