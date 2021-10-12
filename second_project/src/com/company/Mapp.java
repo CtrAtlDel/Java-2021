@@ -179,6 +179,9 @@ public class Mapp<P, Q> {
         return this.length > 0;
     }
 
+    /**
+     * print all pairs
+     */
     public void print() {
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         while(tmp != null) {
