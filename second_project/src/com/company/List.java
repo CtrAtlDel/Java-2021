@@ -37,7 +37,7 @@ public class List<Object> {
     public List(int size) {
         if (size > 0) {
             this.length = size;
-            this.head = new Node<Object>(null);
+            this.head = new Node<>(null);
             Node<Object> tmp = this.head;
             for (int i = 0; i < size - 1; i++) {
                 tmp.next = new Node<>(null);
@@ -71,11 +71,12 @@ public class List<Object> {
     /**
      *
      * @param index - index of element
-     * @return
+     * @return if bad index(index out of range)
      */
     public void deleteIndex(int index) {
         if (index >= this.length) {
             System.out.println("Index out of range");
+            return;
         }
         if (this.length > 0) {
             if (index == 0) {
