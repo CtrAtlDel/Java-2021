@@ -46,7 +46,6 @@ public class Mapp<P, Q> {
     /**
      * @param key   - key of element
      * @param value - data of element
-     * @return
      */
     public void put(P key, Q value) {
         if (this.list == null || this.list.head == null) {
@@ -82,7 +81,6 @@ public class Mapp<P, Q> {
     /**
      * @param key - key of element in map
      * @param def - the default value, which is given by the second parameter.
-     * @return
      */
     public Object get(P key, P def) {
         Object getter = get(key);
@@ -94,7 +92,6 @@ public class Mapp<P, Q> {
 
     /**
      * @param key - key of map
-     * @return null if list is empty
      */
     public void remove(P key) {
         Pairs<P, Q> pair = new Pairs<>(key, null);

@@ -71,7 +71,6 @@ public class List<Object> {
     /**
      *
      * @param index - index of element
-     * @return if bad index(index out of range)
      */
     public void deleteIndex(int index) {
         if (index >= this.length) {
