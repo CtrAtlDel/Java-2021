@@ -2,6 +2,7 @@ package com.company;
 
 public class Main {
     public static void main(String[] args) {
+        Mapp<Integer, String> map = new Mapp<>();
         List_int list1 = new List_int();
         List_int list2 = new List_int();
         list1.insert(1);
