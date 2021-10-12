@@ -16,19 +16,5 @@ public class Main {
         list2.insert(14);
         List_int list_merge = list1.merge(list1.head, list2.head);
         list_merge.print();
-/*        Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
-        String[] str_sp = str.split(" ");
-        System.out.println(str);
-        Mapp<String, Integer> map = new Mapp<>();
-        System.out.println("Length:" + str_sp.length);
-        for (int i = 0; i < str_sp.length; i++) {
-            map.put(str_sp[i], 1);
-            if (){
-
-            }else{
-
-            }
-        }*/
     }
 }
