@@ -8,8 +8,11 @@ public class Main {
         list1.insert(5);
         list1.insert(10);
         list1.insert(15);
+        list1.insert(21);
         list2.insert(2);
+        list2.insert(13);
         list2.insert(14);
+        list2.insert(17);
         List_int list_merge = list1.merge(list2.head, list1.head) ;
         list_merge.print();
     }
