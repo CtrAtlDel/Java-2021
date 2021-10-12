@@ -10,7 +10,7 @@ public class Main {
         list1.insert(15);
         list2.insert(2);
         list2.insert(14);
-        List_int list_merge = list1.merge(list1.head, list2.head) ;
+        List_int list_merge = list1.merge(list2.head, list1.head) ;
         list_merge.print();
     }
 }

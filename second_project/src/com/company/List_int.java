@@ -127,7 +127,7 @@ public class List_int {
         List_int new_list = new List_int();
         Node tmp1 = head1;
         Node tmp2 = head2;
-        while (tmp1.next != null && tmp2.next != null) {
+        while (tmp1 != null && tmp2 != null) {
             if (tmp1.data <= tmp2.data) {
                 new_list.insert(tmp1.data);
                 tmp1 = tmp1.next;
@@ -136,22 +136,19 @@ public class List_int {
                 tmp2 = tmp2.next;
             }
         }
-        if (tmp1.next == null && tmp2.next != null) {
-            new_list.insert(tmp1.data);
+        if (tmp2 == null && tmp1 != null) {
+            while (tmp1 != null) {
+                new_list.insert(tmp1.data);
+                tmp1 = tmp1.next;
+            }
+            return new_list;
+        }
+        if (tmp2 != null && tmp1 == null){
             while (tmp2 != null) {
                 new_list.insert(tmp2.data);
                 tmp2 = tmp2.next;
             }
             return new_list;
-        } else {
-            if (tmp1.next != null) {
-                new_list.insert(tmp2.data);
-                while (tmp1 != null) {
-                    new_list.insert(tmp1.data);
-                    tmp1 = tmp1.next;
-                }
-                return new_list;
-            }
         }
         return new_list;
     }
