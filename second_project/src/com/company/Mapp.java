@@ -178,4 +178,12 @@ public class Mapp<P, Q> {
     public boolean isEmpty() {
         return this.length > 0;
     }
+
+    public void print() {
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
+        while(tmp != null) {
+            System.out.println("Key: " + tmp.data.key + " Value: " + tmp.data.value);
+            tmp = tmp.next;
+        }
+    }
 }

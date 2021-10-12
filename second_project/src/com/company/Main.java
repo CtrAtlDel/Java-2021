@@ -3,6 +3,9 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
         Mapp<Integer, String> map = new Mapp<>();
+        map.put(1,"2");
+        map.put(2,"3");
+        map.print();
         List_int list1 = new List_int();
         List_int list2 = new List_int();
         list1.insert(1);
