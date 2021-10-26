@@ -24,12 +24,14 @@ public class Main {
         Map<String, Integer> map = new HashMap<String, Integer>();
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
+        String str = "";
         String[] elements = line.split(" ");
         for (String elem : elements){
             if(map.containsKey(elem)){
                 map.put(elem, map.get(elem) + 1);
             }else{
                 map.put(elem, 1);
+                str = str + elem + " ";
             }
         }
         Set<String> set = map.keySet();
@@ -42,6 +44,6 @@ public class Main {
             System.out.print(elem + " ");
         }
         System.out.println();
-
+        System.out.println(str);
     }
 }
