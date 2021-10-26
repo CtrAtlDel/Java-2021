@@ -143,12 +143,9 @@ public class List_int {
             }
             return new_list;
         }
-        if (tmp2 != null && tmp1 == null){
-            while (tmp2 != null) {
-                new_list.insert(tmp2.data);
-                tmp2 = tmp2.next;
-            }
-            return new_list;
+        while (tmp2 != null) {
+            new_list.insert(tmp2.data);
+            tmp2 = tmp2.next;
         }
         return new_list;
     }

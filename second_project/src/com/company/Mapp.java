@@ -52,11 +52,31 @@ public class Mapp<P, Q> {
             this.list = new List<>();
             Pairs<P, Q> pair = new Pairs<>(key, value);
             this.list.insert(pair);
+            this.length++;
         } else {
-            Pairs<P, Q> pair = new Pairs<>(key, value);
-            this.list.insert(pair);
+            List.Node<Pairs<P, Q>> tmp = getNode(key);
+            if (tmp == null) {
+                Pairs<P, Q> pair = new Pairs<>(key, value);
+                this.list.insert(pair);
+                this.length++;
+            } else {
+                tmp.data.value = value;
+            }
         }
-        this.length++;
+    }
+
+    public List.Node<Pairs<P, Q>> getNode(P key) {
+        if (this.list == null) {
+            return null;
+        }
+        List.Node<Pairs<P, Q>> tmp = this.list.head;
+        while (tmp != null) {
+            if (tmp.data.key == key) {
+                return tmp;
+            }
+            tmp = tmp.next;
+        }
+        return null;
     }
 
     /**
@@ -184,7 +204,7 @@ public class Mapp<P, Q> {
      */
     public void print() {
         List.Node<Pairs<P, Q>> tmp = this.list.head;
-        while(tmp != null) {
+        while (tmp != null) {
             System.out.println("Key: " + tmp.data.key + " Value: " + tmp.data.value);
             tmp = tmp.next;
         }

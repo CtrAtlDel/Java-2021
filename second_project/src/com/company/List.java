@@ -53,7 +53,7 @@ public class List<Object> {
      *
      * @param data - value of element
      */
-    public void insert(Object data) { //исходный лист
+    public void insert(Object data) {
         Node<Object> new_node = new Node<>(data);
         new_node.next = null;
         if (this.head == null) { // список был изначально пуст
