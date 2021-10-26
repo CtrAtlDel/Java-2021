@@ -21,29 +21,34 @@ public class Main {
         task_1();
     }
     public static void task_1(){
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
-        String str = "";
+        StringBuilder str = new StringBuilder();
         String[] elements = line.split(" ");
-        for (String elem : elements){
-            if(map.containsKey(elem)){
+        for (String elem : elements) {
+            if (map.containsKey(elem)) {
                 map.put(elem, map.get(elem) + 1);
-            }else{
+            } else {
                 map.put(elem, 1);
-                str = str + elem + " ";
+                str.append(elem).append(" ");
             }
         }
-        Set<String> set = map.keySet();
-        Collection<Integer> collection = map.values();
-        for (String elem : set){
-            System.out.print(elem + " ");
+        for (Map.Entry<String, Integer> entry: map.entrySet()){
+            String key = entry.getKey();
+            int value = entry.getValue();
+            System.out.println("Key: " + key + " Value: " + value);
         }
-        System.out.println();
-        for (Integer elem: collection){
-            System.out.print(elem + " ");
-        }
-        System.out.println();
+//        Set<String> set = map.keySet();
+//        Collection<Integer> collection = map.values();
+//        for (String elem : set){
+//            System.out.print(elem + " ");
+//        }
+//        System.out.println();
+//        for (Integer elem: collection){
+//            System.out.print(elem + " ");
+//        }
+//        System.out.println();
         System.out.println(str);
     }
 }
