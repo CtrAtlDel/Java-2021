@@ -83,7 +83,7 @@ public class Mapp<P, Q> {
      * @param key - key of element in map
      * @return value of elem by key
      */
-    public Object get(P key) {
+    public Q get(P key) {
         if (this.list == null || this.list.head == null) {
             return null;
         }
@@ -101,12 +101,12 @@ public class Mapp<P, Q> {
      * @param key - key of element in map
      * @param def - the default value, which is given by the second parameter.
      */
-    public Object get(P key, P def) {
+    public Q get(P key, Q def) {
         if (this.list == null || this.list.head == null) {
             return null;
         }
-        Object getter = get(key);
-        if (getter.equals(null)) {
+        Q getter = get(key);
+        if (getter == null) {
             return def;
         }
         return getter;

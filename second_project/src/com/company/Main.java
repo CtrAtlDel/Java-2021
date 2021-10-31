@@ -4,7 +4,20 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        task_1();
+        Mapp<Integer, Integer> mapp = new Mapp<>();
+        int size = mapp.size();
+        boolean test = mapp.isEmpty();
+        System.out.println("test: " + test);
+        mapp.put(1, 1);
+        mapp.put(2, 2);
+        mapp.put(3, 3);
+        int get = mapp.get(1);
+        boolean count = mapp.keyContains(1);
+        System.out.println("Is contains: " + count);
+        count = mapp.keyContains(4);
+        System.out.println("Is contains: " + count);
+        test = mapp.isEmpty();
+        System.out.println("test: " + test);
     }
 
     public static void task_1() {

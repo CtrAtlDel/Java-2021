@@ -1,7 +1,7 @@
 package com.company;
 
-public class List<Object> {
-    public Node<Object> head;
+public class List<T> {
+    public Node<T> head;
     private int length;
 
     /**
@@ -38,7 +38,7 @@ public class List<Object> {
         if (size > 0) {
             this.length = size;
             this.head = new Node<>(null);
-            Node<Object> tmp = this.head;
+            Node<T> tmp = this.head;
             for (int i = 0; i < size - 1; i++) {
                 tmp.next = new Node<>(null);
                 tmp = tmp.next;
@@ -53,13 +53,13 @@ public class List<Object> {
      *
      * @param data - value of element
      */
-    public void insert(Object data) {
-        Node<Object> new_node = new Node<>(data);
+    public void insert(T data) {
+        Node<T> new_node = new Node<>(data);
         new_node.next = null;
         if (this.head == null) { // список был изначально пуст
             this.head = new_node;
         } else {
-            Node<Object> tmp = this.head;
+            Node<T> tmp = this.head;
             while (tmp.next != null) {
                 tmp = tmp.next;
             }
@@ -81,7 +81,7 @@ public class List<Object> {
             if (index == 0) {
                 this.head = this.head.next;
             } else {
-                Node<Object> tmp = this.head;
+                Node<T> tmp = this.head;
                 for (int i = 0; i < index; i++) {
                     tmp = tmp.next;
                 }
@@ -105,19 +105,19 @@ public class List<Object> {
      * @param data value of elemet
      * @return null if index out of range,
      */
-    public Object setIndex(int index, Object data) {
+    public void setIndex(int index, T data) {
         if (index >= this.length || index < 0) {
-            return null;
+            return;
         }
-        Node<Object> tmp = this.head;
+        Node<T> tmp = this.head;
         for (int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
-        Node<Object> new_node = new Node<>(data);
+        Node<T> new_node = new Node<>(data);
         new_node.next = tmp.next;
         tmp.next = new_node;
         this.length++;
-        return null;
+        return;
     }
 
     /**
@@ -125,11 +125,11 @@ public class List<Object> {
      * @param index of elem in list
      * @return value[index]
      */
-    public Object getElemByIndex(int index) {
+    public T getElemByIndex(int index) {
         if (index >= this.length || index < 0) {
             return null;
         }
-        Node<Object> tmp = this.head;
+        Node<T> tmp = this.head;
         for (int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
@@ -141,8 +141,8 @@ public class List<Object> {
      * @param data input value
      * @return index of data
      */
-    public int getIndexByelem(Object data) {
-        Node<Object> tmp = this.head;
+    public int getIndexByelem(T data) {
+        Node<T> tmp = this.head;
         for (int i = 0; i < this.length; i++) {
             if (data.equals(tmp.data)) { //tmp.data == data)
                 return i;
@@ -164,7 +164,7 @@ public class List<Object> {
      * print all elements of list
      */
     public void print() {
-        Node<Object> tmp = this.head;
+        Node<T> tmp = this.head;
         while (tmp != null) {
             System.out.print(tmp.data + " ");
             tmp = tmp.next;
