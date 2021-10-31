@@ -135,7 +135,7 @@ public class Mapp<P, Q> {
      */
     public boolean keyContains(P key) {
         Object tmp = this.get(key);
-        return tmp == null;
+        return tmp != null;
     }
 
     /**

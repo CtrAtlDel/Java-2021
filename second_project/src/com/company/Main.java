@@ -4,8 +4,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        task_1();
     }
-    public static void task_1(){
+
+    public static void task_1() {
         Map<String, Integer> map = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
@@ -19,7 +21,7 @@ public class Main {
                 str.append(elem).append(" ");
             }
         }
-        for (Map.Entry<String, Integer> entry: map.entrySet()){
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
             System.out.println("Key: " + key + " Value: " + value);

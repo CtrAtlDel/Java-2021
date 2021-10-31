@@ -106,7 +106,7 @@ public class List<Object> {
      * @return null if index out of range,
      */
     public Object setIndex(int index, Object data) {
-        if (index >= this.length) {
+        if (index >= this.length || index < 0) {
             return null;
         }
         Node<Object> tmp = this.head;
