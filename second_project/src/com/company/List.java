@@ -73,7 +73,7 @@ public class List<Object> {
      * @param index - index of element
      */
     public void deleteIndex(int index) {
-        if (index >= this.length) {
+        if (index >= this.length || index < 0) {
             System.out.println("Index out of range");
             return;
         }
@@ -87,6 +87,7 @@ public class List<Object> {
                 }
                 tmp = tmp.next;
             }
+            this.length-=1;
         }
     }
 
@@ -115,6 +116,7 @@ public class List<Object> {
         Node<Object> new_node = new Node<>(data);
         new_node.next = tmp.next;
         tmp.next = new_node;
+        this.length++;
         return null;
     }
 
@@ -142,7 +144,7 @@ public class List<Object> {
     public int getIndexByelem(Object data) {
         Node<Object> tmp = this.head;
         for (int i = 0; i < this.length; i++) {
-            if (tmp.data == data) {
+            if (data.equals(tmp.data)) { //tmp.data == data)
                 return i;
             }
             tmp = tmp.next;

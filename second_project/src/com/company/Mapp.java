@@ -90,7 +90,7 @@ public class Mapp<P, Q> {
 //        Pairs<P, Q> pair = new Pairs<>(key, null);
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
-            if (tmp.data.key == key) {
+            if (key.equals(tmp.data.key)) {
                 return tmp.data.value;
             }
             tmp = tmp.next;
@@ -104,7 +104,7 @@ public class Mapp<P, Q> {
      */
     public Object get(P key, P def) {
         Object getter = get(key);
-        if (getter == null) {
+        if (getter.equals(null)) {
             return def;
         }
         return getter;
@@ -133,7 +133,7 @@ public class Mapp<P, Q> {
      */
     public boolean keyContains(P key) {
         Object tmp = this.get(key);
-        return tmp != null;
+        return tmp.equals(null);
     }
 
     /**
