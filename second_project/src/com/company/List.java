@@ -96,7 +96,7 @@ public class List<Object> {
      * @return true if we have element insaid else false
      */
     public boolean isEmpty() {
-        return this.length > 0;
+        return this.length == 0;
     }
 
     /**
@@ -126,11 +126,11 @@ public class List<Object> {
      * @return value[index]
      */
     public Object getElemByIndex(int index) {
-        if (index >= this.length) {
+        if (index >= this.length || index < 0) {
             return null;
         }
         Node<Object> tmp = this.head;
-        for (int i = 0; i <= index; i++) {
+        for (int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
         return tmp.data;

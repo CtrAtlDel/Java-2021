@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        //task1();
     }
     public static void task_1(){
         Map<String, Integer> map = new HashMap<>();

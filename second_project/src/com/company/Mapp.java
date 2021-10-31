@@ -87,7 +87,6 @@ public class Mapp<P, Q> {
         if (this.list == null || this.list.head == null) {
             return null;
         }
-//        Pairs<P, Q> pair = new Pairs<>(key, null);
         List.Node<Pairs<P, Q>> tmp = this.list.head;
         for (int i = 0; i < this.length; i++) {
             if (key.equals(tmp.data.key)) {
@@ -103,6 +102,9 @@ public class Mapp<P, Q> {
      * @param def - the default value, which is given by the second parameter.
      */
     public Object get(P key, P def) {
+        if (this.list == null || this.list.head == null) {
+            return null;
+        }
         Object getter = get(key);
         if (getter.equals(null)) {
             return def;
@@ -133,7 +135,7 @@ public class Mapp<P, Q> {
      */
     public boolean keyContains(P key) {
         Object tmp = this.get(key);
-        return tmp.equals(null);
+        return tmp == null;
     }
 
     /**
@@ -196,7 +198,7 @@ public class Mapp<P, Q> {
      * false - if size of map <= 0
      */
     public boolean isEmpty() {
-        return this.length > 0;
+        return this.length == 0;
     }
 
     /**
