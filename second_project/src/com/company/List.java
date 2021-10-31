@@ -5,7 +5,6 @@ public class List<T> {
     private int length;
 
     /**
-     *
      * @param <Object> - type of element
      */
     static class Node<Object> {
@@ -13,7 +12,6 @@ public class List<T> {
         Node<Object> next;
 
         /**
-         *
          * @param data - value of element
          */
         public Node(Object data) {
@@ -31,7 +29,6 @@ public class List<T> {
     }
 
     /**
-     *
      * @param size - size of List
      */
     public List(int size) {
@@ -50,7 +47,6 @@ public class List<T> {
     }
 
     /**
-     *
      * @param data - value of element
      */
     public void insert(T data) {
@@ -69,7 +65,6 @@ public class List<T> {
     }
 
     /**
-     *
      * @param index - index of element
      */
     public void deleteIndex(int index) {
@@ -87,12 +82,11 @@ public class List<T> {
                 }
                 tmp = tmp.next;
             }
-            this.length-=1;
+            this.length -= 1;
         }
     }
 
     /**
-     *
      * @return true if we have element insaid else false
      */
     public boolean isEmpty() {
@@ -101,8 +95,9 @@ public class List<T> {
 
     /**
      * input data by index
+     *
      * @param index index of element
-     * @param data value of elemet
+     * @param data  value of elemet
      * @return null if index out of range,
      */
     public void setIndex(int index, T data) {
@@ -117,11 +112,9 @@ public class List<T> {
         new_node.next = tmp.next;
         tmp.next = new_node;
         this.length++;
-        return;
     }
 
     /**
-     *
      * @param index of elem in list
      * @return value[index]
      */
@@ -137,7 +130,6 @@ public class List<T> {
     }
 
     /**
-     *
      * @param data input value
      * @return index of data
      */
@@ -153,7 +145,6 @@ public class List<T> {
     }
 
     /**
-     *
      * @return size of List
      */
     public int getLength() {
